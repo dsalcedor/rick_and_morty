@@ -1,11 +1,12 @@
+import style from './Cards.module.css'
 import Card from './Card';
 
 export default function Cards(props) {
    const { characters } = props;
-   return (
-      <div>
+   return ( 
+      <div className={style.container}>
          {characters.map((char) => {
-         return <Card 
+            return <Card 
             name={char.name} 
             species={char.species} 
             gender={char.gender} 

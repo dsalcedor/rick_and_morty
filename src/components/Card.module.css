@@ -1,0 +1,36 @@
+.container{
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    width: 35vh;
+}
+
+.cardText{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.closeButton{
+    background-color: red;
+    color: white;
+    position: relative;
+    right: -100px;
+    border-radius: 5px;
+    padding: 2px 6px;
+    margin: 2px;
+}
+
+.closeButton:hover{
+    background-color: aliceblue;
+    color: black;
+    cursor: pointer;
+}
+
+.imagen{
+    width: 100%;
+}
+
+

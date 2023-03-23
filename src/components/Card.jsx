@@ -1,11 +1,17 @@
+import style from './Card.module.css'
+
 export default function Card(props) {
    return (
-      <div>
-         <button onClick={props.onClose}>X</button>
-         <h2>Name: {props.name}</h2>
-         <h2>Species: {props.species}</h2>
-         <h2>Gender: {props.gender}</h2>
-         <img  src={props.image} alt="" />
+      <div className={style.container}>
+         <div>
+            <button className={style.closeButton} onClick={props.onClose}>X</button>
+            <img className={style.imagen} src={props.image} alt="" />
+            <h2>{props.name}</h2>
+            <div className={style.cardText}>
+               <h2>{props.species}</h2>
+               <h2>{props.gender}</h2>
+            </div>
+         </div>
       </div>
    );
 }
