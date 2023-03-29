@@ -1,15 +1,18 @@
+import { useState } from 'react'
 import './App.css'
 import Cards from './components/Cards/Cards.jsx'
-import SearchBar from './components/SearchBar/SearchBar.jsx'
-import characters from './data.js'
+import Nav from './components/Nav/Nav'
+//import characters from './data.js'
 
 function App () {
+
+  const [characters, setCharacters] = useState()
+
   return (
     <div className='App' style={{ padding: '25px' }}>
       <hr />
       <div>
-        <SearchBar
-          onSearch={(characterID) => window.alert(characterID)}
+        <Nav
           />
       </div>
       <hr />
