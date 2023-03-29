@@ -1,4 +1,4 @@
-import style from './Cards.module.css'
+import style from './SearchBar.module.css'
 
 export default function SearchBar(props) {
    return (

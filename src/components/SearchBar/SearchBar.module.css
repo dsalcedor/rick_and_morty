@@ -1,9 +1,3 @@
-.container{
-    display: flex;
-    justify-content: space-around;
-    padding: 30px;
-}
-
 .addButton{
     background-color: green;
     color: aliceblue;
