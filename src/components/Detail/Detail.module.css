@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+
+.texto{
+    display: flex;
+    justify-content: start;
+    color: aliceblue;
+    font-size: 20px;
+}

@@ -7,11 +7,13 @@ export default function Cards(props) {
       <div className={style.container}>
          {characters.map((char) => {
             return <Card 
+            key={char.id}
+            id={char.id}
             name={char.name} 
             species={char.species} 
             gender={char.gender} 
             image={char.image}
-            onClose = {() => window.alert('Emulamos que se cierra la card')}
+            onClose = {()=>props.onClose(char.id)}
          />
          }
 

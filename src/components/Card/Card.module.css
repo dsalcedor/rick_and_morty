@@ -9,6 +9,7 @@
 
 .cardText{
     display: flex;
+    text-decoration: none;
     flex-direction: row;
     justify-content: space-around;
 }
