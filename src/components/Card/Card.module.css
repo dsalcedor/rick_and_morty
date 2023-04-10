@@ -14,11 +14,19 @@
     justify-content: space-around;
 }
 
+.favButton{
+    position: relative;
+    right: 80px;
+    border-radius: 5px;
+    padding: 2px 6px;
+    margin: 2px;
+}
+
 .closeButton{
     background-color: red;
     color: white;
     position: relative;
-    right: -100px;
+    right: -80px;
     border-radius: 5px;
     padding: 2px 6px;
     margin: 2px;
