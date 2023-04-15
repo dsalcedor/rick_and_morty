@@ -7,10 +7,17 @@ const initialState = {
 const reducer = (state = initialState, actions) => {
     switch(actions.type){
         case ADD_FAVORITE:
-            return {
-                ...state,
-                myFavorites: [...state.myFavorites, actions.payload]
+            const isDuplicate = state.myFavorites.find((char) => char.id === actions.payload.id);
+
+            if(isDuplicate){
+                return {...state};
+            }else{
+                return {
+                    ...state,
+                    myFavorites: [...state.myFavorites, actions.payload],
+                }
             }
+            
         
         case DELETE_FAVORITE:
             return {
@@ -24,3 +31,4 @@ const reducer = (state = initialState, actions) => {
 };
 
 export default reducer;
+

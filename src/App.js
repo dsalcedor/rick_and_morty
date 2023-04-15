@@ -42,12 +42,10 @@ function App() {
   const password = "1password";
 
   function login(userData) {
-    // if (userData.password === password && userData.username === username) {
-    //   setAccess(true);
-    //   navigate("/home");
-    // }
-    setAccess(true);
-    navigate("/home");
+    if (userData.password === password && userData.username === username) {
+      setAccess(true);
+      navigate("/home");
+    }
   }
 
   useEffect(() => {
