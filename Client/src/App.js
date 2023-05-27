@@ -7,6 +7,7 @@ import Nav from "./components/Nav/Nav";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+import axios from "axios";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -38,27 +39,42 @@ function App() {
 
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const username = "ejemplo@gmail.com";
-  const password = "1password";
+  // const username = "ejemplo@gmail.com";
+  // const password = "1password";
 
+  // function login(userData) {
+  //   if (userData.password === password && userData.username === username) {
+  //     setAccess(true);
+  //     navigate("/home");
+  //   }
+  // }
+  /////////////////////////////////////////////////////////// nuevo login ///////////////////////
   function login(userData) {
-    if (userData.password === password && userData.username === username) {
-      setAccess(true);
-      navigate("/home");
-    }
+    const { username, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    console.log(userData);
+    axios(URL + `?username=${username}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
   }
 
-  useEffect(() => {
-    !access && navigate('/');
- }, [access]);
+  /////////////////////////////////////////////////////////// nuevo login ///////////////////////
 
- function logout(){
-  setAccess(false);
- }
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
+  function logout() {
+    setAccess(false);
+  }
 
   return (
     <div className="App" style={{ padding: "25px" }}>
-      {location.pathname !== "/" && <Nav onSearch={onSearch} random={random} logout={logout}/>}
+      {location.pathname !== "/" && (
+        <Nav onSearch={onSearch} random={random} logout={logout} />
+      )}
       <Routes>
         <Route exact path="/" element={<Form login={login} />} />
 
@@ -70,7 +86,7 @@ function App() {
         <Route path="/detail/:detailId" element={<Detail />} />
 
         <Route path="/about" element={<About />} />
-        
+
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
